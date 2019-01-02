@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="index">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../../../favicon.ico">
+
+    <title>Dashboard Template for Bootstrap</title>
+
+    <!-- Bootstrap core CSS -->
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link th:href="@{/css/dashboard.css}" rel="stylesheet">
+    <link th:href="@{/css/form-validation.css}" rel="stylesheet">
+</head>
+<body>
+<main role="main" layout:fragment="container" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+    <div class="container pt-4 pb-3 mb-3">
+        <div class="col-md-9 order-md-1">
+            <h4 class="mb-3">Dodaj pojazd</h4>
+            <form th:action="@{/cars/save}" th:object="${car}" method="post">
+
+                <div class="row">
+                    <div class="col-md-4 mb-3">
+                        <label for="id">ID</label>
+                        <input type="text" class="form-control" id="id" placeholder="" value=""
+                               required th:field="*{id}">
+                        <div class="invalid-feedback">
+                            Valid ID is required.
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="vin">VIN</label>
+                        <input type="text" class="form-control" id="vin" placeholder="" value=""
+                               required th:field="*{vin}">
+                        <div class="invalid-feedback">
+                            Valid VIN is required.
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="vintage">Vintage</label>
+                        <input type="text" class="form-control" id="vintage" placeholder="" value=""
+                               required th:field="*{vintage}">
+                        <div class="invalid-feedback">
+                            Valid vintage is required.
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 mb-3">
+                        <label for="fuel_type">Fuel type</label>
+                        <select class="custom-select d-block w-100" id="fuel_type" required th:field="*{fuel_type}">
+                            <option value="">Choose...</option>
+                            <option value="Diesel">diesel</option>
+                            <option value="Petrol">petrol</option>
+                            <option value="LPG">LPG</option>
+                            <option value="LPG_petrol">LPG + petrol</option>
+                            <option value="CNG">CNG</option>
+                        </select>
+                        <div class="invalid-feedback">
+                            Please select a valid Fuel type.
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="nr_oc">Nr OC</label>
+                        <input type="text" class="form-control" id="nr_oc" placeholder="" value=""
+                               required th:field="*{nr_oc}">
+                        <div class="invalid-feedback">
+                            Valid nr_oc is required.
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="proof_registration_number">Registration Number</label>
+                        <input type="text" class="form-control" id="proof_registration_number"
+                               placeholder="" required th:field="*{proof_registration_number}">
+                        <div class="invalid-feedback">
+                            Proof registration number code required.
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 mb-3">
+                        <label for="mileage">Mileage</label>
+                        <input type="text" class="form-control" id="mileage" placeholder="" required>
+                        <div class="invalid-feedback" th:field="*{mileage}">
+                            Mileage date required
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="gearbox">Gearbox</label>
+                        <select class="custom-select d-block w-100" id="gearbox" required th:field="*{gearbox}">
+                            <option value="">Choose...</option>
+                            <option value="Manual">Manual</option>
+                            <option value="Automatic">Automatic</option>
+                        </select>
+                        <div class="invalid-feedback">
+                            Please select a valid gearbox.
+                        </div>
+
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="model">Model</label>
+                        <input type="text" class="form-control" id="model" placeholder=""
+                               required th:field="*{model}">
+                        <div class="invalid-feedback">
+                            Model code required
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 mb-3">
+                        <label for="number_of_test_drives">Number of test drives</label>
+                        <input type="text" class="form-control" id="number_of_test_drives" placeholder=""
+                               required th:field="*{number_of_test_drives}">
+                        <div class="invalid-feedback">
+                            Number of test drives date required
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="engine">Engine</label>
+                        <input type="text" class="form-control" id="engine" placeholder=""
+                               required th:field="*{engine}">
+                        <div class="invalid-feedback">
+                            engine drives date required
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="brand">Brand</label>
+                        <input type="text" class="form-control" id="brand" placeholder="" value=""
+                               required th:field="*{brand}">
+                        <div class="invalid-feedback">
+                            Valid brand is required.
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 mb-3">
+                        <label for="description">Description</label>
+                        <textarea class="form-control" id="description" placeholder=""
+                                  required th:field="*{description}" rows="3"></textarea>
+                        <div class="invalid-feedback">
+                            Descriptio drives date required
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                </div>
+                <hr class="mb-4">
+                <button class="btn btn-primary btn-lg btn-block" type="submit">Continue to save</button>
+
+            </form>
+
+
+
+            <footer class="my-5 pt-5 text-muted text-center text-small">
+                <p class="mb-1">&copy; 2017-2018 Car Dealer</p>
+                <ul class="list-inline">
+                    <li class="list-inline-item"><a href="#">Privacy</a></li>
+                    <li class="list-inline-item"><a href="#">Terms</a></li>
+                    <li class="list-inline-item"><a href="#">Support</a></li>
+                </ul>
+            </footer>
+        </div>
+    </div>
+</main>
+</body>
+</html>
